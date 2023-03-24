@@ -41,6 +41,8 @@ public class BaseDriver {
         https://demo.nopcommerce.com/register?returnUrl=%2F
         //driver.get("https://opencart.abstracta.us/index.php?route=account/login");
         driver.get("https://admin-demo.nopcommerce.com/login");
+
+
 //        WebElement login = driver.findElement(By.xpath("//a[@class='list-group-item']"));
 //        login.click();
 

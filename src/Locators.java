@@ -25,5 +25,60 @@ public class Locators {
     @FindBy(xpath = "//ul[@class='nav nav-pills nav-sidebar flex-column nav-legacy']/li")
     public List<WebElement> dashBoardMenu;
 
+    @FindBy(xpath = "//i[@class='nav-icon far fa-user']")
+    public WebElement customerList;
+
+    @FindBy(xpath = "//*[text()=' Customers']")
+    public WebElement customers;
+
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement add;
+
+//    @FindBy(xpath = "//input[@name='Email']")
+//    public WebElement email2;
+//
+//    @FindBy(xpath = "//input[@name='Password']")
+//    public WebElement password2;
+
+    @FindBy(xpath = "//input[@name='FirstName']")
+    public WebElement firstName;
+
+    @FindBy(xpath = "//input[@name='LastName']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//input[@name='Gender']")
+    public WebElement gender;
+
+    @FindBy(xpath = "//input[@id='DateOfBirth']")
+    public WebElement dateOfBirth;
+
+    @FindBy(xpath = "//input[@name='Company']")
+    public WebElement company;
+
+    @FindBy(xpath = "//input[@name='IsTaxExempt']")
+    public WebElement taxExemp;
+
+    @FindBy(xpath = "//div[@role='listbox']")
+    public WebElement newsletter;
+
+    @FindBy(xpath = "(//div[@role='listbox'])[2]")
+    public WebElement customerRoles;
+
+    @FindBy(xpath = "//select[@class='form-control valid']")
+    public WebElement manager;
+
+    @FindBy(xpath = "//input[@class='check-box']")
+    public WebElement active;
+
+    @FindBy(xpath = "//textarea[@class='form-control']")
+    public WebElement commend;
+
+    @FindBy(xpath = "//button[@name='save']")
+    public WebElement save;
+
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
+    public WebElement succes;
+
+
 
 }
