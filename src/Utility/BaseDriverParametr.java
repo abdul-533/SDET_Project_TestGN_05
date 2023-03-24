@@ -61,18 +61,6 @@ public class BaseDriverParametr {
 //        WebElement login = driver.findElement(By.xpath("//a[@class='list-group-item']"));
 //        login.click();
 
-        WebElement mail = driver.findElement(By.xpath("//input[@id='input-email']"));
-        mail.sendKeys("abdul-533@gmail.com");
-
-        WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-        password.sendKeys("Aa199714a");
-
-        WebElement loginEnt = driver.findElement(By.xpath("//input[@type='submit']"));
-        loginEnt.click();
-
-        //Assert.assertTrue(driver.getCurrentUrl().equals("https://opencart.abstracta.us/index.php?route=account/account"),"Yalnish girish");
-        Assert.assertTrue(driver.getTitle().equals("My Account"));
-        //Assert.assertEquals(driver.getTitle(), "My Account", "Login olmadi");
 
 
     }

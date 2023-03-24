@@ -13,15 +13,17 @@ public class Locators {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
-    @FindBy(xpath = "")
-    public WebElement locator1;
+    @FindBy(xpath = "//input[@id='Email']")
+    public WebElement email;
 
-    @FindBy(xpath = "")
-    public WebElement locator2;
+    @FindBy(xpath = "//input[@id='Password']")
+    public WebElement password;
 
-    @FindBy(xpath = "")
-    public WebElement locator3;
+    @FindBy(xpath = "//*[@class='button-1 login-button']")
+    public WebElement loginButton;
 
+    @FindBy(xpath = "//ul[@class='nav nav-pills nav-sidebar flex-column nav-legacy']/li")
+    public List<WebElement> dashBoardMenu;
 
 
 }
