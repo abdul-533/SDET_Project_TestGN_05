@@ -64,7 +64,7 @@ public class Locators {
     @FindBy(xpath = "(//div[@role='listbox'])[2]")
     public WebElement customerRoles;
 
-    @FindBy(xpath = "//select[@class='form-control valid']")
+    @FindBy(xpath = "//select[@id='VendorId']")
     public WebElement manager;
 
     @FindBy(xpath = "//input[@class='check-box']")

@@ -66,13 +66,13 @@ public class Tests extends BaseDriver {
         elements.customerList.click();
         elements.customers.click();
         elements.add.click();
-        elements.email.sendKeys("group8@gmail.com");
+        elements.email.sendKeys("Ggroup8@gmail.com");
         elements.password.sendKeys("12345678");
         elements.firstName.sendKeys("Group8");
         elements.lastName.sendKeys("Test3");
         elements.gender.click();
         Tools.Bekle(2);
-        elements.dateOfBirth.sendKeys("24/03/2000");
+        elements.dateOfBirth.sendKeys("03/24/1997");
         elements.company.sendKeys("Tecxhno Study");
         elements.taxExemp.click();
         Tools.Bekle(2);
@@ -80,21 +80,9 @@ public class Tests extends BaseDriver {
         elements.newsletter.click();
         WebElement e1 = driver.findElement(By.xpath("//li[text()='Your store name']"));
         e1.click();
-        elements.customerRoles.click();
-        elements.customerRoles.clear();
-        Tools.Bekle(1);
-        WebElement select = driver.findElement(By.xpath("//select[@id='SelectedCustomerRoleIds']"));
 
-        Select scc = new Select(select);
-        scc.selectByIndex(2);
 
-        //elements.customerRoles.click();
-        Tools.Bekle(1);
-        // WebElement e2 = driver.findElement(By.xpath("//li[text()='Guests']"));
-        //e2.click();
 
-        Select sc1 = new Select(elements.customerRoles);
-        sc1.selectByIndex(1);
 
         Tools.Bekle(2);
         Select sc2 = new Select(elements.manager);
