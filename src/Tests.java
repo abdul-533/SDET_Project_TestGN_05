@@ -14,10 +14,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Tests extends BaseDriver {
-    String emailstr = "Grouppp8@gmail.com";
+    String emailstr = "Groupppp8@gmail.com";
     String passwordStr = "12345678";
     String firstNameStr = "Group8";
     String lastnameStr = "Test3";
+
 
     @Test(priority = 1)
     void Test1() {
@@ -56,16 +57,7 @@ public class Tests extends BaseDriver {
 
     @Test(priority = 3)
     void Test3() {
-
-
         Locators elements = new Locators();
-//        Tools.Bekle(3);
-//        elements.email.clear();
-//        elements.password.clear();
-//        elements.email.sendKeys("admin@yourstore.com");
-//        elements.password.sendKeys("admin");
-//        elements.loginButton.click();
-
 
         elements.customerList.click();
         elements.customers.click();
@@ -102,17 +94,9 @@ public class Tests extends BaseDriver {
 
     @Test(priority = 4)
     void Test4() {
-
-
         Locators elements = new Locators();
-        elements.email.clear();
-        elements.password.clear();
-        elements.email.sendKeys("admin@yourstore.com");
-        elements.password.sendKeys("admin");
-        elements.loginButton.click();
 
-
-        elements.customerList.click();
+//        elements.customerList.click();
         elements.customers.click();
 
 
@@ -132,6 +116,33 @@ public class Tests extends BaseDriver {
         elements.save.click();
 
         Assert.assertTrue(elements.succes.getText().contains("successfully"), "wrong choice");
+
+
+    }
+
+    @Test(priority = 5)
+    void Test5() {
+        Locators elements = new Locators();
+        Tools.Bekle(3);
+        elements.email.clear();
+        elements.password.clear();
+        elements.email.sendKeys("admin@yourstore.com");
+        elements.password.sendKeys("admin");
+        elements.loginButton.click();
+
+        elements.customerList.click();
+
+        elements.customers.click();
+        elements.searchEmail.sendKeys(emailstr);
+        elements.searchFirstName.sendKeys(firstNameStr);
+        elements.searchLastName.sendKeys(lastnameStr);
+        elements.searchButton.click();
+
+        elements.edit.click();
+        elements.delete.click();
+        elements.delete2.click();
+        Assert.assertTrue(elements.succes.getText().contains(" deleted successfully"), "wrong choice");
+
 
 
     }

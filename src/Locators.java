@@ -97,8 +97,13 @@ public class Locators {
     @FindBy(xpath = "//i[@class='fas fa-pencil-alt']")
     public WebElement edit;
 
+    @FindBy(xpath = "//span[@id='customer-delete']")
+    public WebElement delete;
 
+    @FindBy(xpath = "//button[@class='btn btn-danger float-right']")
+    public WebElement delete2;
 
+    //button[@class='btn btn-danger float-right']
 
 
 }
