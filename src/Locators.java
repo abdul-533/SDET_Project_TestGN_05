@@ -79,6 +79,26 @@ public class Locators {
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
     public WebElement succes;
 
+    @FindBy(xpath = "//div[text()='Search']")
+    public WebElement search;
+
+    @FindBy(xpath = "//input[@id='SearchEmail']")
+    public WebElement searchEmail;
+
+    @FindBy(xpath = "//input[@id='SearchFirstName']")
+    public WebElement searchFirstName;
+
+    @FindBy(xpath = "//input[@id='SearchLastName']")
+    public WebElement searchLastName;
+
+    @FindBy(xpath = "//button[@id='search-customers']")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//i[@class='fas fa-pencil-alt']")
+    public WebElement edit;
+
+
+
 
 
 }

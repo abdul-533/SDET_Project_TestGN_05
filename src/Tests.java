@@ -14,6 +14,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Tests extends BaseDriver {
+    String emailstr = "Grouppp8@gmail.com";
+    String passwordStr = "12345678";
+    String firstNameStr = "Group8";
+    String lastnameStr = "Test3";
 
     @Test(priority = 1)
     void Test1() {
@@ -55,21 +59,23 @@ public class Tests extends BaseDriver {
 
 
         Locators elements = new Locators();
-        Tools.Bekle(3);
-        elements.email.clear();
-        elements.password.clear();
-        elements.email.sendKeys("admin@yourstore.com");
-        elements.password.sendKeys("admin");
-        elements.loginButton.click();
+//        Tools.Bekle(3);
+//        elements.email.clear();
+//        elements.password.clear();
+//        elements.email.sendKeys("admin@yourstore.com");
+//        elements.password.sendKeys("admin");
+//        elements.loginButton.click();
 
 
         elements.customerList.click();
         elements.customers.click();
         elements.add.click();
-        elements.email.sendKeys("Ggroup8@gmail.com");
-        elements.password.sendKeys("12345678");
-        elements.firstName.sendKeys("Group8");
-        elements.lastName.sendKeys("Test3");
+
+
+        elements.email.sendKeys(emailstr);
+        elements.password.sendKeys(passwordStr);
+        elements.firstName.sendKeys(firstNameStr);
+        elements.lastName.sendKeys(lastnameStr);
         elements.gender.click();
         Tools.Bekle(2);
         elements.dateOfBirth.sendKeys("03/24/1997");
@@ -80,8 +86,6 @@ public class Tests extends BaseDriver {
         elements.newsletter.click();
         WebElement e1 = driver.findElement(By.xpath("//li[text()='Your store name']"));
         e1.click();
-
-
 
 
         Tools.Bekle(2);
@@ -95,4 +99,41 @@ public class Tests extends BaseDriver {
 
 
     }
+
+    @Test(priority = 4)
+    void Test4() {
+
+
+        Locators elements = new Locators();
+        elements.email.clear();
+        elements.password.clear();
+        elements.email.sendKeys("admin@yourstore.com");
+        elements.password.sendKeys("admin");
+        elements.loginButton.click();
+
+
+        elements.customerList.click();
+        elements.customers.click();
+
+
+        elements.searchEmail.sendKeys(emailstr);
+        elements.searchFirstName.sendKeys(firstNameStr);
+        elements.searchLastName.sendKeys(lastnameStr);
+        elements.searchButton.click();
+
+        WebElement el = driver.findElement(By.xpath("(//table[@class='table table-bordered table-hover table-striped dataTable no-footer'])[2]"));
+        Assert.assertTrue(el.getText().contains(emailstr));
+        Tools.Bekle(2);
+
+        elements.edit.click();
+
+        elements.commend.clear();
+        elements.commend.sendKeys("Good bye");
+        elements.save.click();
+
+        Assert.assertTrue(elements.succes.getText().contains("successfully"), "wrong choice");
+
+
+    }
+
 }
