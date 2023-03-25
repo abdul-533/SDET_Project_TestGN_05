@@ -103,7 +103,18 @@ public class Locators {
     @FindBy(xpath = "//button[@class='btn btn-danger float-right']")
     public WebElement delete2;
 
-    //button[@class='btn btn-danger float-right']
+    @FindBy(xpath = "//input[@placeholder='Search']")
+    public WebElement serch2;
+
+    @FindBy(xpath = "//strong[text()='Shipments']")
+    public WebElement serch3;
+
+    @FindBy(xpath = "//h1[@class='float-left']")
+    public WebElement shipmentMSG;
+
+
+
+
 
 
 }

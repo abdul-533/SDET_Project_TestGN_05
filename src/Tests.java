@@ -123,12 +123,7 @@ public class Tests extends BaseDriver {
     @Test(priority = 5)
     void Test5() {
         Locators elements = new Locators();
-        Tools.Bekle(3);
-        elements.email.clear();
-        elements.password.clear();
-        elements.email.sendKeys("admin@yourstore.com");
-        elements.password.sendKeys("admin");
-        elements.loginButton.click();
+
 
         elements.customerList.click();
 
@@ -143,6 +138,22 @@ public class Tests extends BaseDriver {
         elements.delete2.click();
         Assert.assertTrue(elements.succes.getText().contains(" deleted successfully"), "wrong choice");
 
+
+    }
+
+    @Test(priority = 6)
+    void Test6() {
+        Locators elements = new Locators();
+
+        Tools.Bekle(3);
+        elements.email.clear();
+        elements.password.clear();
+        elements.email.sendKeys("admin@yourstore.com");
+        elements.password.sendKeys("admin");
+        elements.loginButton.click();
+        elements.serch2.sendKeys("Shipments");
+        elements.serch3.click();
+        Assert.assertTrue(elements.shipmentMSG.getText().contains("Shipments"));
 
 
     }
