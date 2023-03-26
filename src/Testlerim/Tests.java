@@ -1,5 +1,6 @@
 package Testlerim;
 
+import Utility.BaseDriver;
 import Utility.BaseDriverParametr;
 import Utility.Tools;
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tests extends BaseDriverParametr {
-    String emailstr = "Groupppp4@gmail.com";
+    String emailstr = "Groupppp7@gmail.com";
     String passwordStr = "12345678";
     String firstNameStr = "Group8";
     String lastnameStr = "Test3";
@@ -21,7 +22,8 @@ public class Tests extends BaseDriverParametr {
     @Test(priority = 1)
     void Test1() {
         Locators elements = new Locators();
-
+        Tools.Bekle(3);
+        elements.emptyClick.click();
         elements.email.clear();
         elements.password.clear();
         elements.email.sendKeys("admin@yourstore.com");
@@ -58,10 +60,14 @@ public class Tests extends BaseDriverParametr {
     @Test(priority = 3)
     void Test3() {
         Locators elements = new Locators();
+        Tools.Bekle(3);
+
 
         elements.customerList.click();
         elements.customers.click();
         elements.add.click();
+
+        Tools.Bekle(3);
 
 
         elements.email.sendKeys(emailstr);
@@ -95,7 +101,7 @@ public class Tests extends BaseDriverParametr {
     @Test(priority = 4)
     void Test4() {
         Locators elements = new Locators();
-
+        Tools.Bekle(3);
 //        elements.customerList.click();
         elements.customers.click();
 
@@ -123,9 +129,10 @@ public class Tests extends BaseDriverParametr {
     @Test(priority = 5)
     void Test5() {
         Locators elements = new Locators();
-        // elements.customerList.click();
+
+       // elements.customerList.click();
         Tools.Bekle(2);
-        // elements.customers.click();
+        //elements.customers.click();
 
         elements.searchEmail.sendKeys(emailstr);
 
@@ -145,10 +152,9 @@ public class Tests extends BaseDriverParametr {
     @Test(priority = 6)
     void Test6() {
         Locators elements = new Locators();
-
         elements.serch2.sendKeys("shipments");
         elements.serch3.click();
-        Assert.assertTrue(elements.shipmentMSG.getText().contains("shipments"));
+        Assert.assertTrue(elements.shipmentMSG.getText().toLowerCase().contains("shipments"));
 
 
     }

@@ -11,12 +11,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public  class Locators {
+public  class Locators  {
     public Locators() {
         PageFactory.initElements(BaseDriverParametr.driver, this);
     }
 
-    @FindBy(xpath = "//input[@class='email valid']")
+    @FindBy(xpath = "  //strong[text()='Welcome, please sign in!']")
+    public WebElement emptyClick;
+    @FindBy(xpath = "//input[@name='Email']")
     public WebElement email;
 
     @FindBy(xpath = "//input[@id='Password']")

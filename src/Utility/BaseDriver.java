@@ -38,6 +38,7 @@ public class BaseDriver {
 
     void logintest() {
         System.out.println("Login Test");
+        Tools.Bekle(2);
         https://demo.nopcommerce.com/register?returnUrl=%2F
         //driver.get("https://opencart.abstracta.us/index.php?route=account/login");
         driver.get("https://admin-demo.nopcommerce.com/login");

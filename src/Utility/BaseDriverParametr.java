@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -18,70 +19,62 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BaseDriverParametr  {
+public class BaseDriverParametr {
 
-    public static WebDriver driver; // statik olduqu icin birtanede calishtiti ondan paralele teste gore kaldirdik
+    public static WebDriver driver;  // her classın kendi driverı olsun
     public static WebDriverWait wait;
 
     @BeforeClass
     @Parameters("browserTipi")
-    // ilk bu
-    public void bashlanqicIhslemleri(String browserTipi) {
-
+    public void baslangicIslemler(String browserTipi) {
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
-        if (browserTipi.equalsIgnoreCase("edge")) {
-            driver = new EdgeDriver();
 
-        } else if (browserTipi.equalsIgnoreCase("firefox")) {
-            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
-            driver = new FirefoxDriver();
+        switch (browserTipi.toLowerCase()) {
+            case "firefox":
 
+                System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
+                driver = new FirefoxDriver();
+                System.out.println("firefox started");
+                break;
 
-        } else {
-            System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            driver = new ChromeDriver(options);
+            case "safari":
+                driver = new SafariDriver();
+                break;
+
+            case "edge":
+                driver = new EdgeDriver();
+                break;
+
+            default:
+                System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
         }
 
-        driver.manage().window().maximize();
+
+        driver.manage().window().maximize(); // Ekranı max yapıyor.
         Duration dr = Duration.ofSeconds(30);
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        logintest();
-
+        wait = new WebDriverWait(driver,
+                Duration.ofSeconds(30));
+        loginTest();
     }
 
-    void logintest() {
+    void loginTest() {
         System.out.println("Login Test");
+
         driver.get("https://admin-demo.nopcommerce.com/login");
-        Tools.Bekle(3);
-
-//        WebElement mail=driver.findElement(By.xpath("//input[@class='email valid']"));
-//        mail.clear();
-//        mail.sendKeys("admin@yourstore.com");
-//        WebElement password=driver.findElement(By.xpath("//input[@id='Password']"));
-//        password.clear();
-//        password.sendKeys("admin");
-
-
-
-//        WebElement login = driver.findElement(By.xpath("//a[@class='list-group-item']"));
-//        login.click();
-
 
 
     }
 
     @AfterClass
-    // en son bu
-    public void bitishIshlemleri() {
-
-        Tools.Bekle(3);
+    public void bitisIslemleri() {
+        Tools.Bekle(5);
         driver.quit();
     }
-
 }
