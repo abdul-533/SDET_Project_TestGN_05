@@ -7,13 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tests extends BaseDriverParametr {
-    String emailstr = "Groupppp7@gmail.com";
     String passwordStr = "12345678";
     String firstNameStr = "Group8";
     String lastnameStr = "Test3";
@@ -58,7 +58,8 @@ public class Tests extends BaseDriverParametr {
     }
 
     @Test(priority = 3)
-    void Test3() {
+    @Parameters("mail")
+    void Test3(String mail) {
         Locators elements = new Locators();
         Tools.Bekle(3);
 
@@ -70,7 +71,7 @@ public class Tests extends BaseDriverParametr {
         Tools.Bekle(3);
 
 
-        elements.email.sendKeys(emailstr);
+        elements.email.sendKeys(mail);
         elements.password.sendKeys(passwordStr);
         elements.firstName.sendKeys(firstNameStr);
         elements.lastName.sendKeys(lastnameStr);
@@ -99,20 +100,21 @@ public class Tests extends BaseDriverParametr {
     }
 
     @Test(priority = 4)
-    void Test4() {
+    @Parameters("mail")
+    void Test4(String mail) {
         Locators elements = new Locators();
         Tools.Bekle(3);
 //        elements.customerList.click();
         elements.customers.click();
 
 
-        elements.searchEmail.sendKeys(emailstr);
+        elements.searchEmail.sendKeys(mail);
         elements.searchFirstName.sendKeys(firstNameStr);
         elements.searchLastName.sendKeys(lastnameStr);
         elements.searchButton.click();
 
         WebElement el = driver.findElement(By.xpath("(//table[@class='table table-bordered table-hover table-striped dataTable no-footer'])[2]"));
-        Assert.assertTrue(el.getText().contains(emailstr));
+        Assert.assertTrue(el.getText().contains(mail));
         Tools.Bekle(2);
 
         elements.edit.click();
@@ -127,14 +129,15 @@ public class Tests extends BaseDriverParametr {
     }
 
     @Test(priority = 5)
-    void Test5() {
+    @Parameters("mail")
+    void Test5(String mail) {
         Locators elements = new Locators();
 
        // elements.customerList.click();
         Tools.Bekle(2);
         //elements.customers.click();
 
-        elements.searchEmail.sendKeys(emailstr);
+        elements.searchEmail.sendKeys(mail);
 
         elements.searchFirstName.sendKeys(firstNameStr);
 
