@@ -18,8 +18,9 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BaseDriverParametr {
-    public WebDriver driver; // statik olduqu icin birtanede calishtiti ondan paralele teste gore kaldirdik
+public class BaseDriverParametr  {
+
+    public static WebDriver driver; // statik olduqu icin birtanede calishtiti ondan paralele teste gore kaldirdik
     public static WebDriverWait wait;
 
     @BeforeClass
@@ -42,9 +43,9 @@ public class BaseDriverParametr {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver(options);
-
         }
-        // driver.manage().window().maximize();
+
+        driver.manage().window().maximize();
         Duration dr = Duration.ofSeconds(30);
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
@@ -56,8 +57,18 @@ public class BaseDriverParametr {
 
     void logintest() {
         System.out.println("Login Test");
-
         driver.get("https://admin-demo.nopcommerce.com/login");
+        Tools.Bekle(3);
+
+//        WebElement mail=driver.findElement(By.xpath("//input[@class='email valid']"));
+//        mail.clear();
+//        mail.sendKeys("admin@yourstore.com");
+//        WebElement password=driver.findElement(By.xpath("//input[@id='Password']"));
+//        password.clear();
+//        password.sendKeys("admin");
+
+
+
 //        WebElement login = driver.findElement(By.xpath("//a[@class='list-group-item']"));
 //        login.click();
 

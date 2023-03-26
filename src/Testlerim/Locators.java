@@ -1,4 +1,7 @@
+package Testlerim;
+
 import Utility.BaseDriver;
+import Utility.BaseDriverParametr;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,12 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Locators {
+public  class Locators {
     public Locators() {
-        PageFactory.initElements(BaseDriver.driver, this);
+        PageFactory.initElements(BaseDriverParametr.driver, this);
     }
 
-    @FindBy(xpath = "//input[@id='Email']")
+    @FindBy(xpath = "//input[@class='email valid']")
     public WebElement email;
 
     @FindBy(xpath = "//input[@id='Password']")

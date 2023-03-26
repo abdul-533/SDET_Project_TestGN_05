@@ -1,20 +1,18 @@
-import Utility.BaseDriver;
+package Testlerim;
+
 import Utility.BaseDriverParametr;
 import Utility.Tools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class Tests extends BaseDriver {
-    String emailstr = "Groupppp8@gmail.com";
+public class Tests extends BaseDriverParametr {
+    String emailstr = "Groupppp4@gmail.com";
     String passwordStr = "12345678";
     String firstNameStr = "Group8";
     String lastnameStr = "Test3";
@@ -24,7 +22,6 @@ public class Tests extends BaseDriver {
     void Test1() {
         Locators elements = new Locators();
 
-        Tools.Bekle(3);
         elements.email.clear();
         elements.password.clear();
         elements.email.sendKeys("admin@yourstore.com");
@@ -37,7 +34,10 @@ public class Tests extends BaseDriver {
 
     @Test(priority = 2)
     void Test2() {
+
         Locators elements = new Locators();
+        //elements.loginButton.click();
+
 
         List<String> menuContent = new ArrayList<>();
 
@@ -123,13 +123,14 @@ public class Tests extends BaseDriver {
     @Test(priority = 5)
     void Test5() {
         Locators elements = new Locators();
+        // elements.customerList.click();
+        Tools.Bekle(2);
+        // elements.customers.click();
 
-
-        elements.customerList.click();
-
-        elements.customers.click();
         elements.searchEmail.sendKeys(emailstr);
+
         elements.searchFirstName.sendKeys(firstNameStr);
+
         elements.searchLastName.sendKeys(lastnameStr);
         elements.searchButton.click();
 
@@ -145,15 +146,9 @@ public class Tests extends BaseDriver {
     void Test6() {
         Locators elements = new Locators();
 
-        Tools.Bekle(3);
-        elements.email.clear();
-        elements.password.clear();
-        elements.email.sendKeys("admin@yourstore.com");
-        elements.password.sendKeys("admin");
-        elements.loginButton.click();
-        elements.serch2.sendKeys("Shipments");
+        elements.serch2.sendKeys("shipments");
         elements.serch3.click();
-        Assert.assertTrue(elements.shipmentMSG.getText().contains("Shipments"));
+        Assert.assertTrue(elements.shipmentMSG.getText().contains("shipments"));
 
 
     }
